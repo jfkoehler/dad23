@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: syllabus
+chapters:
+- file: 01_dtypes
+- file: 02_collections
+- file: 03-control_flow
+- file: 04-functions
+- file: 05-pandas
+- file: 06-visualization
