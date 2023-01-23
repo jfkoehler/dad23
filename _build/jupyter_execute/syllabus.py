@@ -7,7 +7,7 @@
 # 
 # **INSTRUCTOR**: Jacob Frias Koehler, PhD
 # 
-# **LOCATION**: 600 East 16th St
+# **LOCATION**:  63 Fifth Ave Room L106
 # 
 # **TIME**: Monday 12:10 - 2:50 pm
 # 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Data and Design</title>
+    <title>Functions &#8212; Data and Design</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -48,7 +48,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction to Pandas 🐼" href="05-pandas.html" />
     <link rel="prev" title="Conditional Statements" href="03-control_flow.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -104,7 +103,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_dtypes.html">
    Intro to Python
@@ -120,9 +119,9 @@ const thebe_selector_output = ".output, .cell_output"
    Conditional Statements
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05-pandas.html">
-   Introduction to Pandas 🐼
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Functions
   </a>
  </li>
 </ul>
@@ -348,7 +347,47 @@ title="Print to PDF"
         <i class="fas fa-list"></i> Contents
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="simple visible nav section-nav flex-column">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lesson-objectives">
+   Lesson objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-basic-function">
+   Activity: Basic function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-function-parameters">
+   Activity: Function parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#named-parameters-vs-ordered-parameters">
+   Named parameters vs Ordered parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#returning-values-from-a-function">
+   Returning values from a function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-dna-to-rna">
+   Challenge: DNA to RNA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-hamming-distance">
+   Challenge: Hamming Distance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-find-the-divisors">
+   Challenge: Find the divisors
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -358,7 +397,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>Functions</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -367,7 +406,47 @@ title="Print to PDF"
                             <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lesson-objectives">
+   Lesson objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-basic-function">
+   Activity: Basic function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-function-parameters">
+   Activity: Function parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#named-parameters-vs-ordered-parameters">
+   Named parameters vs Ordered parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#returning-values-from-a-function">
+   Returning values from a function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-dna-to-rna">
+   Challenge: DNA to RNA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-hamming-distance">
+   Challenge: Hamming Distance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-find-the-divisors">
+   Challenge: Find the divisors
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -378,7 +457,125 @@ title="Print to PDF"
                 
               <div>
                 
-  
+  <div class="tex2jax_ignore mathjax_ignore section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h1>
+<hr class="docutils" />
+<div class="section" id="lesson-objectives">
+<h2>Lesson objectives<a class="headerlink" href="#lesson-objectives" title="Permalink to this headline">#</a></h2>
+<p>By the end of this lesson, you should be able to:</p>
+<ol class="simple">
+<li><p>Successfully <strong>create</strong> and <strong>invoke</strong> a function</p></li>
+<li><p>Understand how to use parameters in a function</p></li>
+<li><p>Understand how to return a value from a function</p></li>
+<li><p>Know what a lambda function is and how to create one</p></li>
+</ol>
+</div>
+<div class="section" id="activity-basic-function">
+<h2>Activity: Basic function<a class="headerlink" href="#activity-basic-function" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Create a function in cell below called <code class="docutils literal notranslate"><span class="pre">greeting</span></code> that prints <code class="docutils literal notranslate"><span class="pre">&quot;Howdy&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declare the function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Invoke the function</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="activity-function-parameters">
+<h2>Activity: Function parameters<a class="headerlink" href="#activity-function-parameters" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>In the <a class="reference external" href="https://www.kaggle.com/c/titanic/data">Kaggle Titanic competition</a>, the names of everyone in the manifest look like this:</p>
+<blockquote>
+<div><p>Last, Title. First</p>
+</div></blockquote>
+<p>Create a function called <code class="docutils literal notranslate"><span class="pre">titanic_name</span></code> that accepts 3 parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">first_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code></p></li>
+</ul>
+<p>And prints the full name in the format above.</p>
+</div>
+<div class="section" id="named-parameters-vs-ordered-parameters">
+<h2>Named parameters vs Ordered parameters<a class="headerlink" href="#named-parameters-vs-ordered-parameters" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>In the above example, you must order in which you add your arguments coincides with the order of the parameters in the function declaration. If you called them out of order like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">titanic_name</span><span class="p">(</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;Captain&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then the following would happen:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'Doe'</span></code> would be assigned to <code class="docutils literal notranslate"><span class="pre">first_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'Captain'</span></code> would be assigned to <code class="docutils literal notranslate"><span class="pre">last_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'John'</span></code> would be assigned to <code class="docutils literal notranslate"><span class="pre">title</span></code>.</p></li>
+</ol>
+<p>As a result, the function would print <code class="docutils literal notranslate"><span class="pre">'Captain,</span> <span class="pre">John.</span> <span class="pre">Doe'</span></code>. No bueno.</p>
+<p>You can get around this by referencing the parameters by name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">titanic_name</span><span class="p">(</span><span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Captain&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice the order is the same as our bug: <code class="docutils literal notranslate"><span class="pre">('Doe',</span> <span class="pre">'Captain',</span> <span class="pre">'John')</span></code>. Only now the function will work properly.</p>
+<p>To summarize, ordering your parameters matters <strong>unless you reference the parameters by name</strong>.</p>
+</div>
+<div class="section" id="returning-values-from-a-function">
+<h2>Returning values from a function<a class="headerlink" href="#returning-values-from-a-function" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Let’s say we want to use the result from our <code class="docutils literal notranslate"><span class="pre">titanic_name</span></code> function elsewhere in our code. To do this, we’ll set a variable like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">formatted_name</span> <span class="o">=</span> <span class="n">titanic_name</span><span class="p">(</span><span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Captain&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We’d expect <code class="docutils literal notranslate"><span class="pre">formatted_name</span></code> to be <code class="docutils literal notranslate"><span class="pre">'Doe,</span> <span class="pre">Captain.</span> <span class="pre">John'</span></code>, but that’s not the case. When we output <code class="docutils literal notranslate"><span class="pre">formatted_name</span></code> in a cell, we see that nothing shows up. This is because our function <strong>prints</strong> the name <code class="docutils literal notranslate"><span class="pre">'Doe,</span> <span class="pre">Captain.</span> <span class="pre">John'</span></code>, but nothing gets returned.</p>
+<p><strong>Remember</strong> printing is merely for you the developer to debug your code. In order to use result from <code class="docutils literal notranslate"><span class="pre">titanic_name</span></code> elsewhere in our code, we need to explicitly return it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">titanic_name</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s1">. </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="challenge-dna-to-rna">
+<h2>Challenge: DNA to RNA<a class="headerlink" href="#challenge-dna-to-rna" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>If you’ve taken a Biology class, you know that DNA is essentially a long string comprised of 4 nucleotides:</p>
+<ul class="simple">
+<li><p>Cytosine (C)</p></li>
+<li><p>Thymine (T)</p></li>
+<li><p>Adenine (A)</p></li>
+<li><p>Guanine (G)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dna</span> <span class="o">=</span> <span class="s1">&#39;ACGTAAAACGTGGTGGATTTGACGTGTTTG&#39;</span>
+</pre></div>
+</div>
+<p>RNA is similar to DNA with one exception: all instances of Thymine (T) are replaced with Uracil (U). Our DNA from above would look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rna</span> <span class="o">=</span> <span class="s1">&#39;ACGUAAAACGUGGUGGAUUUGACGUGUUUG&#39;</span>
+</pre></div>
+</div>
+<p>In the cell below, create a function called <code class="docutils literal notranslate"><span class="pre">dna_to_rna</span></code> that accepts a string of DNA and converts it to RNA.</p>
+</div>
+<div class="section" id="challenge-hamming-distance">
+<h2>Challenge: Hamming Distance<a class="headerlink" href="#challenge-hamming-distance" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>The DNA strand <code class="docutils literal notranslate"><span class="pre">'AAAA'</span></code> is similar to the strand <code class="docutils literal notranslate"><span class="pre">'AAAT'</span></code> with one exception: the 4th nucleotide is different. In other words, the two strands have a <strong>hamming distance</strong> of 1, where hamming distance is the number of nucleotides that differ between two strands.</p>
+<p>In the cell below, create a function called <code class="docutils literal notranslate"><span class="pre">hamming_distance</span></code> that accepts two parameters (<code class="docutils literal notranslate"><span class="pre">dna1</span></code> and <code class="docutils literal notranslate"><span class="pre">dna2</span></code>) and calculates the hamming distance between the two strands.</p>
+<p><strong>NOTE:</strong> You can assume the two strands will have the same length.</p>
+</div>
+<div class="section" id="challenge-find-the-divisors">
+<h2>Challenge: Find the divisors<a class="headerlink" href="#challenge-find-the-divisors" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>From <a class="reference external" href="https://www.codewars.com/kata/find-the-divisors/train/python">codewars</a>. Create a function called <code class="docutils literal notranslate"><span class="pre">divisors</span></code> that accepts a number and returns a list of all the divisors for that number.</p>
+<p>For example: <code class="docutils literal notranslate"><span class="pre">divisors(12)</span></code> will return the list <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">6]</span></code>.</p>
+<p><strong>Note</strong>: 1 doesn’t count as a divisor.
+<strong>Note</strong>: If the number doesn’t have any divisors, it is prime (e.g. 13, 23, etc). In cases where the number is prime, simply return the string <code class="docutils literal notranslate"><span class="pre">'13</span> <span class="pre">is</span> <span class="pre">prime'</span></code>.</p>
+</div>
+</div>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -412,13 +609,6 @@ title="Print to PDF"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Conditional Statements</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="05-pandas.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Pandas 🐼</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
