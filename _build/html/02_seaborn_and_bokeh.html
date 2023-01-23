@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Plotting with seaborn &#8212; My sample book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plotting with seaborn &#8212; Data and Design</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,13 +34,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -90,7 +86,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Data and Design</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -186,7 +182,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/02_seaborn_and_bokeh.ipynb"
+        <a href="https://mybinder.org/v2/gh/jfkoehler/dad23/master?urlpath=tree/./02_seaborn_and_bokeh.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -199,6 +195,24 @@ title="Launch on Binder"
     <img src="_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jfkoehler/dad23/blob/master/./02_seaborn_and_bokeh.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
 </a>
 
       </li>
@@ -229,7 +243,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/jfkoehler/dad23"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -246,7 +260,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F02_seaborn_and_bokeh.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jfkoehler/dad23/issues/new?title=Issue%20on%20page%20%2F02_seaborn_and_bokeh.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -372,80 +386,71 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="plotting-with-seaborn">
+  <div class="tex2jax_ignore mathjax_ignore section" id="plotting-with-seaborn">
 <h1>Plotting with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code><a class="headerlink" href="#plotting-with-seaborn" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tips = sns.load_dataset(&#39;tips&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;tips&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>penguins = sns.load_dataset(&#39;penguins&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;penguins&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>titanic = sns.load_dataset(&#39;titanic&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;titanic&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.countplot(titanic[&#39;sex&#39;], hue = titanic[&#39;survived&#39;])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">bc98e84ba233</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">])</span>
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/seaborn/categorical.py:2943,</span> in <span class="ni">countplot</span><span class="nt">(data, x, y, hue, order, hue_order, orient, color, palette, saturation, width, dodge, ax, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2940</span> <span class="k">elif</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2941</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot pass values for both `x` and `y`&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2943</span> <span class="n">plotter</span> <span class="o">=</span> <span class="n">_CountPlotter</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2944</span>     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2945</span>     <span class="n">estimator</span><span class="p">,</span> <span class="n">errorbar</span><span class="p">,</span> <span class="n">n_boot</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2946</span>     <span class="n">orient</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">saturation</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2947</span>     <span class="n">width</span><span class="p">,</span> <span class="n">errcolor</span><span class="p">,</span> <span class="n">errwidth</span><span class="p">,</span> <span class="n">capsize</span><span class="p">,</span> <span class="n">dodge</span>
-<span class="g g-Whitespace">   </span><span class="mi">2948</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2950</span> <span class="n">plotter</span><span class="o">.</span><span class="n">value_label</span> <span class="o">=</span> <span class="s2">&quot;count&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2952</span> <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/seaborn/categorical.py</span> in <span class="ni">countplot</span><span class="nt">(data, x, y, hue, order, hue_order, orient, color, palette, saturation, width, dodge, ax, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2940</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot pass values for both `x` and `y`&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2941</span> 
+<span class="ne">-&gt; </span><span class="mi">2942</span>     <span class="n">plotter</span> <span class="o">=</span> <span class="n">_CountPlotter</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2943</span>         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2944</span>         <span class="n">estimator</span><span class="p">,</span> <span class="n">errorbar</span><span class="p">,</span> <span class="n">n_boot</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span>
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/seaborn/categorical.py:1530,</span> in <span class="ni">_BarPlotter.__init__</span><span class="nt">(self, x, y, hue, data, order, hue_order, estimator, errorbar, n_boot, units, seed, orient, color, palette, saturation, width, errcolor, errwidth, capsize, dodge)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1525</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1526</span>              <span class="n">estimator</span><span class="p">,</span> <span class="n">errorbar</span><span class="p">,</span> <span class="n">n_boot</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1527</span>              <span class="n">orient</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">saturation</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1528</span>              <span class="n">errcolor</span><span class="p">,</span> <span class="n">errwidth</span><span class="p">,</span> <span class="n">capsize</span><span class="p">,</span> <span class="n">dodge</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1529</span>     <span class="sd">&quot;&quot;&quot;Initialize the plotter.&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1530</span>     <span class="bp">self</span><span class="o">.</span><span class="n">establish_variables</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1531</span>                              <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1532</span>     <span class="bp">self</span><span class="o">.</span><span class="n">establish_colors</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">saturation</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1533</span>     <span class="bp">self</span><span class="o">.</span><span class="n">estimate_statistic</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">errorbar</span><span class="p">,</span> <span class="n">n_boot</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/seaborn/categorical.py</span> in <span class="ni">__init__</span><span class="nt">(self, x, y, hue, data, order, hue_order, estimator, errorbar, n_boot, units, seed, orient, color, palette, saturation, width, errcolor, errwidth, capsize, dodge)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1528</span>                  <span class="n">errcolor</span><span class="p">,</span> <span class="n">errwidth</span><span class="p">,</span> <span class="n">capsize</span><span class="p">,</span> <span class="n">dodge</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1529</span>         <span class="sd">&quot;&quot;&quot;Initialize the plotter.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1530</span>         <span class="bp">self</span><span class="o">.</span><span class="n">establish_variables</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1531</span>                                  <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1532</span>         <span class="bp">self</span><span class="o">.</span><span class="n">establish_colors</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">saturation</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/seaborn/categorical.py:437,</span> in <span class="ni">_CategoricalPlotter.establish_variables</span><span class="nt">(self, x, y, hue, data, orient, order, hue_order, units)</span>
-<span class="g g-Whitespace">    </span><span class="mi">435</span> <span class="k">if</span> <span class="n">hue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">436</span>     <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;Cannot use `hue` without `x` and `y`&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">437</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span> <span class="c1"># No hue grouping with wide inputs</span>
-<span class="g g-Whitespace">    </span><span class="mi">440</span> <span class="n">plot_hues</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/seaborn/categorical.py</span> in <span class="ni">establish_variables</span><span class="nt">(self, x, y, hue, data, orient, order, hue_order, units)</span>
+<span class="g g-Whitespace">    </span><span class="mi">435</span>             <span class="k">if</span> <span class="n">hue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">436</span>                 <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;Cannot use `hue` without `x` and `y`&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">437</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span> 
+<span class="g g-Whitespace">    </span><span class="mi">439</span>             <span class="c1"># No hue grouping with wide inputs</span>
 
 <span class="ne">ValueError</span>: Cannot use `hue` without `x` and `y`
 </pre></div>
@@ -454,9 +459,9 @@ import pandas as pd
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#seaborn has a special plot for counts
-sns.countplot(titanic[&#39;survived&#39;])
-#titanic[&#39;survived&#39;].value_counts().plot(kind = &#39;bar&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#seaborn has a special plot for counts</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">])</span>
+<span class="c1">#titanic[&#39;survived&#39;].value_counts().plot(kind = &#39;bar&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -469,7 +474,7 @@ sns.countplot(titanic[&#39;survived&#39;])
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>penguins.head()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -558,9 +563,9 @@ sns.countplot(titanic[&#39;survived&#39;])
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.boxplot(x = penguins[&#39;species&#39;], y = penguins[&#39;flipper_length_mm&#39;])
-plt.title(&#39;Penguins by Species and Distribution of Bill Length&#39;)
-plt.xlabel(&#39;Species of Penguin&#39;);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Penguins by Species and Distribution of Bill Length&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Species of Penguin&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -570,7 +575,7 @@ plt.xlabel(&#39;Species of Penguin&#39;);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>penguins.info()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -595,7 +600,7 @@ memory usage: 18.9+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.scatterplot(penguins[&#39;bill_length_mm&#39;], penguins[&#39;bill_depth_mm&#39;]);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">],</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
 </div>
@@ -605,14 +610,14 @@ memory usage: 18.9+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>penguins = penguins.dropna()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">penguins</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.pairplot(penguins, hue = &#39;island&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;island&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -625,7 +630,7 @@ memory usage: 18.9+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>titanic.head(1)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -690,11 +695,11 @@ memory usage: 18.9+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#Histogram of ages on the titanic 
-#with appropriate title and x axis labels.
-plt.hist(titanic[&#39;age&#39;]);
-plt.title(&#39;Ages on the Titanic&#39;)
-plt.xlabel(&#39;Ages&#39;);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Histogram of ages on the titanic </span>
+<span class="c1">#with appropriate title and x axis labels.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ages on the Titanic&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ages&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -704,7 +709,7 @@ plt.xlabel(&#39;Ages&#39;);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>titanic.head(1)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -769,7 +774,7 @@ plt.xlabel(&#39;Ages&#39;);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>titanic[&#39;class&#39;].value_counts()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -784,8 +789,8 @@ Name: class, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#Barplot of counts of passengers by class on titanic.
-titanic[&#39;pclass&#39;].value_counts().plot(kind = &#39;bar&#39;);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Barplot of counts of passengers by class on titanic.</span>
+<span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -795,14 +800,14 @@ titanic[&#39;pclass&#39;].value_counts().plot(kind = &#39;bar&#39;);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#Boxplots of penguins
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Boxplots of penguins</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>penguins.head(1)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -851,7 +856,7 @@ titanic[&#39;pclass&#39;].value_counts().plot(kind = &#39;bar&#39;);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>penguins[&#39;species&#39;].unique()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -863,25 +868,25 @@ titanic[&#39;pclass&#39;].value_counts().plot(kind = &#39;bar&#39;);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>colors = []
-#write a loop -- loop over the species
-#if Adelie -- blue
-#if Chinstrap -- yellow
-#if Gentoo -- red
-for species in penguins[&#39;species&#39;]:
-    #test if Adelie
-    if species == &#39;Adelie&#39;:
-        colors.append(&#39;blue&#39;)
-    #test if Chinstrap
-    elif species == &#39;Chinstrap&#39;:
-        colors.append(&#39;yellow&#39;)
-    #test if Gentoo
-    else:
-        colors.append(&#39;red&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">#write a loop -- loop over the species</span>
+<span class="c1">#if Adelie -- blue</span>
+<span class="c1">#if Chinstrap -- yellow</span>
+<span class="c1">#if Gentoo -- red</span>
+<span class="k">for</span> <span class="n">species</span> <span class="ow">in</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]:</span>
+    <span class="c1">#test if Adelie</span>
+    <span class="k">if</span> <span class="n">species</span> <span class="o">==</span> <span class="s1">&#39;Adelie&#39;</span><span class="p">:</span>
+        <span class="n">colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="c1">#test if Chinstrap</span>
+    <span class="k">elif</span> <span class="n">species</span> <span class="o">==</span> <span class="s1">&#39;Chinstrap&#39;</span><span class="p">:</span>
+        <span class="n">colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+    <span class="c1">#test if Gentoo</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
-#Scatterplot of penguins
-plt.scatter(penguins[&#39;bill_length_mm&#39;], penguins[&#39;bill_depth_mm&#39;], 
-            c = colors)
+<span class="c1">#Scatterplot of penguins</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">],</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">],</span> 
+            <span class="n">c</span> <span class="o">=</span> <span class="n">colors</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -894,8 +899,8 @@ plt.scatter(penguins[&#39;bill_length_mm&#39;], penguins[&#39;bill_depth_mm&#39;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#barplot for survival
-titanic[&#39;survived&#39;].value_counts().plot(kind = &#39;bar&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#barplot for survival</span>
+<span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -908,14 +913,14 @@ titanic[&#39;survived&#39;].value_counts().plot(kind = &#39;bar&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>survival_counts = titanic[&#39;survived&#39;].value_counts()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">survival_counts</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.bar([0, 1], survival_counts);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">survival_counts</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -925,14 +930,14 @@ titanic[&#39;survived&#39;].value_counts().plot(kind = &#39;bar&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#histograms of flipper lengths
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#histograms of flipper lengths</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.boxplot(x = &#39;island&#39;, y = &#39;bill_length_mm&#39;, data = penguins);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;island&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">penguins</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -942,7 +947,7 @@ titanic[&#39;survived&#39;].value_counts().plot(kind = &#39;bar&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tips.head()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1031,7 +1036,7 @@ titanic[&#39;survived&#39;].value_counts().plot(kind = &#39;bar&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.stripplot(&#39;total_bill&#39;, data = tips)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">tips</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1044,8 +1049,8 @@ titanic[&#39;survived&#39;].value_counts().plot(kind = &#39;bar&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>iris = sns.load_dataset(&quot;iris&quot;)
-sns.catplot(data=iris, orient=&quot;h&quot;, kind=&quot;box&quot;);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1055,9 +1060,9 @@ sns.catplot(data=iris, orient=&quot;h&quot;, kind=&quot;box&quot;);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.catplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;smoker&quot;,
-            col=&quot;time&quot;, aspect=.6,
-            kind=&quot;swarm&quot;, data=tips);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span>
+            <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=.</span><span class="mi">6</span><span class="p">,</span>
+            <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;swarm&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1067,8 +1072,8 @@ sns.catplot(data=iris, orient=&quot;h&quot;, kind=&quot;box&quot;);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>titanic = sns.load_dataset(&quot;titanic&quot;)
-sns.catplot(x=&quot;sex&quot;, y=&quot;survived&quot;, hue=&quot;class&quot;, kind=&quot;bar&quot;, data=titanic);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1078,15 +1083,15 @@ sns.catplot(x=&quot;sex&quot;, y=&quot;survived&quot;, hue=&quot;class&quot;, ki
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from bokeh.plotting import figure 
-from bokeh.io import output_notebook, show
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span> 
+<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">show</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>output_notebook()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_notebook</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1394,17 +1399,17 @@ from bokeh.io import output_notebook, show
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = [1, 2, 3, 4, 5]
-y = [4, 2, 5, 6, 2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p = figure(width = 600, height = 300)
-p.circle(x, y)
-show(p)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1445,9 +1450,9 @@ show(p)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p = figure(width = 600, height = 300)
-p.circle(x, y,  color = &#39;red&#39;, size = 10, alpha = 0.5)
-show(p)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>  <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1488,9 +1493,9 @@ show(p)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p = figure(width = 600, height = 400)
-p.vbar(x= [0,0.5, 1], bottom = [0, 1, 1], top = [4, 3, 2], width = 0.2)
-show(p)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">vbar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bottom</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">top</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1529,18 +1534,18 @@ show(p)
   }
 })(window);</script></div>
 </div>
-<section id="from-a-dataframe">
+<div class="section" id="from-a-dataframe">
 <h2>From a DataFrame<a class="headerlink" href="#from-a-dataframe" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.read_csv(&#39;data/happiness/2015.csv&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/happiness/2015.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.head(2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1614,19 +1619,19 @@ show(p)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from bokeh.models import ColumnDataSource
-from bokeh.layouts import gridplot
-source = ColumnDataSource(df)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">ColumnDataSource</span>
+<span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="kn">import</span> <span class="n">gridplot</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
 
-p1 = figure(title=&quot;Happiness and Economy&quot;, width = 600, height = 300)
-p1.circle(&quot;Happiness Score&quot;, &quot;Economy (GDP per Capita)&quot;, color=&quot;firebrick&quot;, size = 10,
-          alpha = 0.5, 
-          source=source)
-p1.xaxis[0].axis_label = &quot;Happiness Score&quot;
-p1.yaxis[0].axis_label = &quot;GDP per Capita&quot;
+<span class="n">p1</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Happiness and Economy&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="s2">&quot;Happiness Score&quot;</span><span class="p">,</span> <span class="s2">&quot;Economy (GDP per Capita)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;firebrick&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+          <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> 
+          <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">xaxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;Happiness Score&quot;</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">yaxis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;GDP per Capita&quot;</span>
 
-show(p1)
+<span class="n">show</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1665,8 +1670,8 @@ show(p1)
   }
 })(window);</script></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1702,7 +1707,7 @@ show(p1)
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book Community<br/>
+    By Jacob F. Koehler, PhD<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

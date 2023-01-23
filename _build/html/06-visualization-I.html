@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Plotting with Matplotlib &#8212; My sample book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plotting with Matplotlib &#8212; Data and Design</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,13 +34,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -90,7 +86,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Data and Design</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -186,7 +182,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/06-visualization-I.ipynb"
+        <a href="https://mybinder.org/v2/gh/jfkoehler/dad23/master?urlpath=tree/./06-visualization-I.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -199,6 +195,24 @@ title="Launch on Binder"
     <img src="_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jfkoehler/dad23/blob/master/./06-visualization-I.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
 </a>
 
       </li>
@@ -229,7 +243,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/jfkoehler/dad23"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -246,7 +260,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F06-visualization-I.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jfkoehler/dad23/issues/new?title=Issue%20on%20page%20%2F06-visualization-I.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -424,60 +438,60 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="plotting-with-matplotlib">
+  <div class="tex2jax_ignore mathjax_ignore section" id="plotting-with-matplotlib">
 <h1>Plotting with <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code><a class="headerlink" href="#plotting-with-matplotlib" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#define some points
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define some points</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#a basic plot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#a basic plot</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#add a title
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#add a title</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#change the color and marker
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#change the color and marker</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#add x and y labels
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#add x and y labels</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="basic-plots">
+<div class="section" id="basic-plots">
 <h2>Basic Plots<a class="headerlink" href="#basic-plots" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Histogram: one continuous set of values</p></li>
@@ -488,180 +502,180 @@ import pandas as pd
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>titanic = sns.load_dataset(&#39;titanic&#39;)
-penguins = sns.load_dataset(&#39;penguins&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;titanic&#39;</span><span class="p">)</span>
+<span class="n">penguins</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;penguins&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#titanic time
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#titanic time</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#age vs. fare
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#age vs. fare</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#counts per class
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#counts per class</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#fare vs. age
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#fare vs. age</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#boxplot of survivals by age
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#boxplot of survivals by age</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="using-seaborn">
+<div class="section" id="using-seaborn">
 <h3>Using Seaborn<a class="headerlink" href="#using-seaborn" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#scatterplot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#scatterplot</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#distplot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#distplot</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#countplot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#countplot</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#boxplot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#boxplot</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#swarmplot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#swarmplot</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="groupby">
+</div>
+<div class="section" id="groupby">
 <h3><code class="docutils literal notranslate"><span class="pre">.groupby</span></code><a class="headerlink" href="#groupby" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#group by gender
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#group by gender</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#group by island
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#group by island</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#group by island and species
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#group by island and species</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#group by age
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#group by age</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#multiple summaries
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#multiple summaries</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="subplots">
+</div>
+<div class="section" id="subplots">
 <h3>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#single subplot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#single subplot</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#two columns 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#two columns </span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#two rows
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#two rows</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#two rows two columns
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#two rows two columns</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="saving-and-displaying-figures">
+</div>
+<div class="section" id="saving-and-displaying-figures">
 <h3>Saving and Displaying Figures<a class="headerlink" href="#saving-and-displaying-figures" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#same image
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#same image</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#view in markdown cell
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#view in markdown cell</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -697,7 +711,7 @@ penguins = sns.load_dataset(&#39;penguins&#39;)
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book Community<br/>
+    By Jacob F. Koehler, PhD<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

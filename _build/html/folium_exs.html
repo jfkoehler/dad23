@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Make a Map &#8212; My sample book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Make a Map &#8212; Data and Design</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,13 +34,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -90,7 +86,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Data and Design</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -186,7 +182,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/folium_exs.ipynb"
+        <a href="https://mybinder.org/v2/gh/jfkoehler/dad23/master?urlpath=tree/./folium_exs.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -199,6 +195,24 @@ title="Launch on Binder"
     <img src="_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jfkoehler/dad23/blob/master/./folium_exs.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
 </a>
 
       </li>
@@ -229,7 +243,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/jfkoehler/dad23"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -246,7 +260,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffolium_exs.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jfkoehler/dad23/issues/new?title=Issue%20on%20page%20%2Ffolium_exs.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -392,7 +406,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="make-a-map">
+  <div class="section" id="make-a-map">
 <h1>Make a Map<a class="headerlink" href="#make-a-map" title="Permalink to this headline">#</a></h1>
 <p><strong>OBJECTIVES</strong>:</p>
 <ul class="simple">
@@ -403,93 +417,73 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import folium
-import pandas as pd
-import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sat = pd.read_csv(&#39;data/sat_2017.csv&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/sat_2017.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">    </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">eb177f2dac0c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/sat_2017.csv&#39;</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py:211,</span> in <span class="ni">deprecate_kwarg.&lt;locals&gt;._deprecate_kwarg.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span>         <span class="n">kwargs</span><span class="p">[</span><span class="n">new_arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_arg_value</span>
-<span class="ne">--&gt; </span><span class="mi">211</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>                     <span class="n">kwargs</span><span class="p">[</span><span class="n">new_arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_arg_value</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> 
+<span class="g g-Whitespace">    </span><span class="mi">213</span>         <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">)</span>
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py:331,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">331</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">331</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span> 
+<span class="g g-Whitespace">    </span><span class="mi">333</span>         <span class="c1"># error: &quot;Callable[[VarArg(Any), KwArg(Any)], Any]&quot; has no</span>
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py:950,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">946</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
-<span class="g g-Whitespace">    </span><span class="mi">947</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">948</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">950</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">949</span> 
+<span class="ne">--&gt; </span><span class="mi">950</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">951</span> 
+<span class="g g-Whitespace">    </span><span class="mi">952</span> 
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py:605,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">602</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">604</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">605</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="k">return</span> <span class="n">parser</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">603</span> 
+<span class="g g-Whitespace">    </span><span class="mi">604</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">605</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span> 
+<span class="g g-Whitespace">    </span><span class="mi">607</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py:1442,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1439</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1441</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1442</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1440</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1441</span>         <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1442</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1443</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1444</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py:1735,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1733</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1734</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1735</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1736</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1737</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1738</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1739</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1740</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1741</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1742</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1743</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1744</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1745</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1746</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1733</span>                 <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1734</span>                     <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1735</span>             <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1736</span>                 <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1737</span>                 <span class="n">mode</span><span class="p">,</span>
 
-<span class="nn">File /usr/local/lib/python3.8/site-packages/pandas/io/common.py:856,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">851</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">852</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">853</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">854</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">855</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">856</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">857</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">858</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">861</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">863</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">864</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+<span class="nn">/opt/anaconda3/lib/python3.8/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span>         <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span>             <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">856</span>             <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>                 <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>                 <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
 
 <span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data/sat_2017.csv&#39;
 </pre></div>
@@ -498,7 +492,7 @@ import numpy as np
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sat.head()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -575,7 +569,7 @@ import numpy as np
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sat.info()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sat</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -598,22 +592,22 @@ memory usage: 2.1+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sat[&#39;Participation&#39;] = sat[&#39;Participation&#39;].str.replace(&#39;%&#39;, &#39;&#39;).astype(&#39;float&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sat</span><span class="p">[</span><span class="s1">&#39;Participation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sat</span><span class="p">[</span><span class="s1">&#39;Participation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#basic map
-m = folium.Map(location = [39.8283, -98.5795], zoom_start = 4, style = &#39;Stamen Toner&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#basic map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">39.8283</span><span class="p">,</span> <span class="o">-</span><span class="mf">98.5795</span><span class="p">],</span> <span class="n">zoom_start</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Stamen Toner&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -622,15 +616,15 @@ m = folium.Map(location = [39.8283, -98.5795], zoom_start = 4, style = &#39;Stam
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>marker_1 = folium.Marker(location = [39.8283, -98.5795], 
-                        popup = &#39;Welcome to the middle.&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marker_1</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">39.8283</span><span class="p">,</span> <span class="o">-</span><span class="mf">98.5795</span><span class="p">],</span> 
+                        <span class="n">popup</span> <span class="o">=</span> <span class="s1">&#39;Welcome to the middle.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>marker_1.add_to(m)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marker_1</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -642,7 +636,7 @@ m = folium.Map(location = [39.8283, -98.5795], zoom_start = 4, style = &#39;Stam
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -651,88 +645,88 @@ m = folium.Map(location = [39.8283, -98.5795], zoom_start = 4, style = &#39;Stam
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>url = &#39;https://raw.githubusercontent.com/python-visualization/folium/master/examples/data&#39;
-state_geo = f&#39;{url}/us-states.json&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/python-visualization/folium/master/examples/data&#39;</span>
+<span class="n">state_geo</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1">/us-states.json&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>abbrevs = &#39;&#39;&#39;
-Alabama - AL
-Alaska - AK
-Arizona - AZ
-Arkansas - AR
-California - CA
-Colorado - CO
-Connecticut - CT
-Delaware - DE
-Florida - FL
-Georgia - GA
-Hawaii - HI
-Idaho - ID
-Illinois - IL
-Indiana - IN
-Iowa - IA
-Kansas - KS
-Kentucky - KY
-Louisiana - LA
-Maine - ME
-Maryland - MD
-Massachusetts - MA
-Michigan - MI
-Minnesota - MN
-Mississippi - MS
-Missouri - MO
-Montana - MT
-Nebraska - NE
-Nevada - NV
-New Hampshire - NH
-New Jersey - NJ
-New Mexico - NM
-New York - NY
-North Carolina - NC
-North Dakota - ND
-Ohio - OH
-Oklahoma - OK
-Oregon - OR
-Pennsylvania - PA
-Rhode Island - RI
-South Carolina - SC
-South Dakota - SD
-Tennessee - TN
-Texas - TX
-Utah - UT
-Vermont - VT
-Virginia - VA
-Washington - WA
-West Virginia - WV
-Wisconsin - WI
-Wyoming - WY
-&#39;&#39;&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abbrevs</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Alabama - AL</span>
+<span class="s1">Alaska - AK</span>
+<span class="s1">Arizona - AZ</span>
+<span class="s1">Arkansas - AR</span>
+<span class="s1">California - CA</span>
+<span class="s1">Colorado - CO</span>
+<span class="s1">Connecticut - CT</span>
+<span class="s1">Delaware - DE</span>
+<span class="s1">Florida - FL</span>
+<span class="s1">Georgia - GA</span>
+<span class="s1">Hawaii - HI</span>
+<span class="s1">Idaho - ID</span>
+<span class="s1">Illinois - IL</span>
+<span class="s1">Indiana - IN</span>
+<span class="s1">Iowa - IA</span>
+<span class="s1">Kansas - KS</span>
+<span class="s1">Kentucky - KY</span>
+<span class="s1">Louisiana - LA</span>
+<span class="s1">Maine - ME</span>
+<span class="s1">Maryland - MD</span>
+<span class="s1">Massachusetts - MA</span>
+<span class="s1">Michigan - MI</span>
+<span class="s1">Minnesota - MN</span>
+<span class="s1">Mississippi - MS</span>
+<span class="s1">Missouri - MO</span>
+<span class="s1">Montana - MT</span>
+<span class="s1">Nebraska - NE</span>
+<span class="s1">Nevada - NV</span>
+<span class="s1">New Hampshire - NH</span>
+<span class="s1">New Jersey - NJ</span>
+<span class="s1">New Mexico - NM</span>
+<span class="s1">New York - NY</span>
+<span class="s1">North Carolina - NC</span>
+<span class="s1">North Dakota - ND</span>
+<span class="s1">Ohio - OH</span>
+<span class="s1">Oklahoma - OK</span>
+<span class="s1">Oregon - OR</span>
+<span class="s1">Pennsylvania - PA</span>
+<span class="s1">Rhode Island - RI</span>
+<span class="s1">South Carolina - SC</span>
+<span class="s1">South Dakota - SD</span>
+<span class="s1">Tennessee - TN</span>
+<span class="s1">Texas - TX</span>
+<span class="s1">Utah - UT</span>
+<span class="s1">Vermont - VT</span>
+<span class="s1">Virginia - VA</span>
+<span class="s1">Washington - WA</span>
+<span class="s1">West Virginia - WV</span>
+<span class="s1">Wisconsin - WI</span>
+<span class="s1">Wyoming - WY</span>
+<span class="s1">&#39;&#39;&#39;</span>
 
-states = [i.split(&#39;-&#39;) for i in abbrevs.split(&#39;\n&#39;)[1:-1]]
+<span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">abbrevs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 
-states_clean = [i[0].rstrip() for i in states]
+<span class="n">states_clean</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">states</span><span class="p">]</span>
 
-abbrevs = [i[1].lstrip() for i in states]
+<span class="n">abbrevs</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">states</span><span class="p">]</span>
 
-state_dict = {s:a for s, a in zip(states_clean, abbrevs)}
+<span class="n">state_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span><span class="n">a</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">states_clean</span><span class="p">,</span> <span class="n">abbrevs</span><span class="p">)}</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sat[&#39;State_A&#39;] = sat[&#39;State&#39;].map(state_dict)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sat</span><span class="p">[</span><span class="s1">&#39;State_A&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sat</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">state_dict</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sat.head()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -815,17 +809,17 @@ state_dict = {s:a for s, a in zip(states_clean, abbrevs)}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>folium.Choropleth(
-    geo_data=state_geo, #the geo json data
-    name=&#39;choropleth&#39;,  #the kind of thing 
-    data=sat,    #this is the dataframe
-    columns=[&#39;State_A&#39;, &#39;Participation&#39;],
-    key_on=&#39;feature.id&#39;,
-    fill_color=&#39;YlGn&#39;,
-    fill_opacity=0.7,
-    line_opacity=0.2,
-    legend_name=&#39;SAT Participation Rate&#39;
-).add_to(m)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">folium</span><span class="o">.</span><span class="n">Choropleth</span><span class="p">(</span>
+    <span class="n">geo_data</span><span class="o">=</span><span class="n">state_geo</span><span class="p">,</span> <span class="c1">#the geo json data</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;choropleth&#39;</span><span class="p">,</span>  <span class="c1">#the kind of thing </span>
+    <span class="n">data</span><span class="o">=</span><span class="n">sat</span><span class="p">,</span>    <span class="c1">#this is the dataframe</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;State_A&#39;</span><span class="p">,</span> <span class="s1">&#39;Participation&#39;</span><span class="p">],</span>
+    <span class="n">key_on</span><span class="o">=</span><span class="s1">&#39;feature.id&#39;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;YlGn&#39;</span><span class="p">,</span>
+    <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">line_opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">legend_name</span><span class="o">=</span><span class="s1">&#39;SAT Participation Rate&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -837,7 +831,7 @@ state_dict = {s:a for s, a in zip(states_clean, abbrevs)}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -846,35 +840,35 @@ state_dict = {s:a for s, a in zip(states_clean, abbrevs)}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import json
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import requests
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response = requests.get(state_geo)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">state_geo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>poly_dict = json.loads(response.text)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poly_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>poly_dict[&#39;features&#39;][0][&#39;properties&#39;][&#39;name&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poly_dict</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -886,38 +880,38 @@ state_dict = {s:a for s, a in zip(states_clean, abbrevs)}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#!conda install geopandas
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!conda install geopandas</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import geopandas as gpd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># gdf = gpd.GeoDataFrame(&#39;data/nyc_bounds&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gdf = gpd.GeoDataFrame(&#39;data/nyc_bounds&#39;)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="covid-map">
+</div>
+<div class="section" id="covid-map">
 <h1>COVID Map<a class="headerlink" href="#covid-map" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>cdf = pd.read_csv(&#39;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports_us/12-13-2020.csv&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports_us/12-13-2020.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>cdf.info()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdf</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -953,19 +947,19 @@ memory usage: 8.3+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = folium.Map(location = [39.8283, -98.5795], zoom_start = 5)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">39.8283</span><span class="p">,</span> <span class="o">-</span><span class="mf">98.5795</span><span class="p">],</span> <span class="n">zoom_start</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 
-folium.Choropleth(
-    geo_data=state_geo, #the geo json data
-    name=&#39;choropleth&#39;,  #the kind of thing 
-    data=cdf,    #this is the dataframe
-    columns=[&#39;Province_State&#39;, &#39;Deaths&#39;],
-    key_on=&#39;feature.properties.name&#39;,
-    fill_color=&#39;BuPu&#39;,
-    fill_opacity=0.7,
-    line_opacity=0.2,
-    legend_name=&#39;COVID Death Counts&#39;
-).add_to(m)
+<span class="n">folium</span><span class="o">.</span><span class="n">Choropleth</span><span class="p">(</span>
+    <span class="n">geo_data</span><span class="o">=</span><span class="n">state_geo</span><span class="p">,</span> <span class="c1">#the geo json data</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;choropleth&#39;</span><span class="p">,</span>  <span class="c1">#the kind of thing </span>
+    <span class="n">data</span><span class="o">=</span><span class="n">cdf</span><span class="p">,</span>    <span class="c1">#this is the dataframe</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Province_State&#39;</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">],</span>
+    <span class="n">key_on</span><span class="o">=</span><span class="s1">&#39;feature.properties.name&#39;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;BuPu&#39;</span><span class="p">,</span>
+    <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">line_opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">legend_name</span><span class="o">=</span><span class="s1">&#39;COVID Death Counts&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -977,7 +971,7 @@ folium.Choropleth(
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -986,21 +980,21 @@ folium.Choropleth(
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from folium.plugins import HeatMap, HeatMapWithTime
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">folium.plugins</span> <span class="kn">import</span> <span class="n">HeatMap</span><span class="p">,</span> <span class="n">HeatMapWithTime</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>cov_death_time = pd.read_csv(&#39;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_US.csv&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cov_death_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_US.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>cov_death_time.head()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cov_death_time</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1172,12 +1166,12 @@ folium.Choropleth(
 <p>5 rows × 339 columns</p>
 </div></div></div>
 </div>
-</section>
-<section id="make-a-heatmap">
+</div>
+<div class="section" id="make-a-heatmap">
 <h1>Make a Heatmap<a class="headerlink" href="#make-a-heatmap" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>cdf.head(4)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdf</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1311,8 +1305,8 @@ folium.Choropleth(
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = folium.Map(location = [39.8283, -98.5795], zoom_start = 5)
-HeatMap(cdf[[&#39;Lat&#39;, &#39;Long_&#39;, &#39;Deaths&#39;]].dropna(subset = [&#39;Lat&#39;, &#39;Long_&#39;]), max_val = 0.5, max_zoom = 10).add_to(m)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">39.8283</span><span class="p">,</span> <span class="o">-</span><span class="mf">98.5795</span><span class="p">],</span> <span class="n">zoom_start</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">HeatMap</span><span class="p">(</span><span class="n">cdf</span><span class="p">[[</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long_&#39;</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long_&#39;</span><span class="p">]),</span> <span class="n">max_val</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">max_zoom</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1324,14 +1318,14 @@ HeatMap(cdf[[&#39;Lat&#39;, &#39;Long_&#39;, &#39;Deaths&#39;]].dropna(subset = 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe src="about:blank" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" data-html=PCFET0NUWVBFIGh0bWw+CjxoZWFkPiAgICAKICAgIDxtZXRhIGh0dHAtZXF1aXY9ImNvbnRlbnQtdHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04IiAvPgogICAgCiAgICAgICAgPHNjcmlwdD4KICAgICAgICAgICAgTF9OT19UT1VDSCA9IGZhbHNlOwogICAgICAgICAgICBMX0RJU0FCTEVfM0QgPSBmYWxzZTsKICAgICAgICA8L3NjcmlwdD4KICAgIAogICAgPHNjcmlwdCBzcmM9Imh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9ucG0vbGVhZmxldEAxLjYuMC9kaXN0L2xlYWZsZXQuanMiPjwvc2NyaXB0PgogICAgPHNjcmlwdCBzcmM9Imh0dHBzOi8vY29kZS5qcXVlcnkuY29tL2pxdWVyeS0xLjEyLjQubWluLmpzIj48L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL21heGNkbi5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC8zLjIuMC9qcy9ib290c3RyYXAubWluLmpzIj48L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2NkbmpzLmNsb3VkZmxhcmUuY29tL2FqYXgvbGlicy9MZWFmbGV0LmF3ZXNvbWUtbWFya2Vycy8yLjAuMi9sZWFmbGV0LmF3ZXNvbWUtbWFya2Vycy5qcyI+PC9zY3JpcHQ+CiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Imh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9ucG0vbGVhZmxldEAxLjYuMC9kaXN0L2xlYWZsZXQuY3NzIi8+CiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Imh0dHBzOi8vbWF4Y2RuLmJvb3RzdHJhcGNkbi5jb20vYm9vdHN0cmFwLzMuMi4wL2Nzcy9ib290c3RyYXAubWluLmNzcyIvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL21heGNkbi5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC8zLjIuMC9jc3MvYm9vdHN0cmFwLXRoZW1lLm1pbi5jc3MiLz4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9mb250LWF3ZXNvbWUvNC42LjMvY3NzL2ZvbnQtYXdlc29tZS5taW4uY3NzIi8+CiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Imh0dHBzOi8vY2RuanMuY2xvdWRmbGFyZS5jb20vYWpheC9saWJzL0xlYWZsZXQuYXdlc29tZS1tYXJrZXJzLzIuMC4yL2xlYWZsZXQuYXdlc29tZS1tYXJrZXJzLmNzcyIvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL3Jhd2Nkbi5naXRoYWNrLmNvbS9weXRob24tdmlzdWFsaXphdGlvbi9mb2xpdW0vbWFzdGVyL2ZvbGl1bS90ZW1wbGF0ZXMvbGVhZmxldC5hd2Vzb21lLnJvdGF0ZS5jc3MiLz4KICAgIDxzdHlsZT5odG1sLCBib2R5IHt3aWR0aDogMTAwJTtoZWlnaHQ6IDEwMCU7bWFyZ2luOiAwO3BhZGRpbmc6IDA7fTwvc3R5bGU+CiAgICA8c3R5bGU+I21hcCB7cG9zaXRpb246YWJzb2x1dGU7dG9wOjA7Ym90dG9tOjA7cmlnaHQ6MDtsZWZ0OjA7fTwvc3R5bGU+CiAgICAKICAgICAgICAgICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwKICAgICAgICAgICAgICAgIGluaXRpYWwtc2NhbGU9MS4wLCBtYXhpbXVtLXNjYWxlPTEuMCwgdXNlci1zY2FsYWJsZT1ubyIgLz4KICAgICAgICAgICAgPHN0eWxlPgogICAgICAgICAgICAgICAgI21hcF9kZGQ5YzhhMjZkZmI0MzE2ODMxMzMxM2I3NGYyM2YzYSB7CiAgICAgICAgICAgICAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgICAgICAgICAgICAgICAgIHdpZHRoOiAxMDAuMCU7CiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0OiAxMDAuMCU7CiAgICAgICAgICAgICAgICAgICAgbGVmdDogMC4wJTsKICAgICAgICAgICAgICAgICAgICB0b3A6IDAuMCU7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIDwvc3R5bGU+CiAgICAgICAgCiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9sZWFmbGV0LmdpdGh1Yi5pby9MZWFmbGV0LmhlYXQvZGlzdC9sZWFmbGV0LWhlYXQuanMiPjwvc2NyaXB0Pgo8L2hlYWQ+Cjxib2R5PiAgICAKICAgIAogICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb2xpdW0tbWFwIiBpZD0ibWFwX2RkZDljOGEyNmRmYjQzMTY4MzEzMzEzYjc0ZjIzZjNhIiA+PC9kaXY+CiAgICAgICAgCjwvYm9keT4KPHNjcmlwdD4gICAgCiAgICAKICAgICAgICAgICAgdmFyIG1hcF9kZGQ5YzhhMjZkZmI0MzE2ODMxMzMxM2I3NGYyM2YzYSA9IEwubWFwKAogICAgICAgICAgICAgICAgIm1hcF9kZGQ5YzhhMjZkZmI0MzE2ODMxMzMxM2I3NGYyM2YzYSIsCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgY2VudGVyOiBbMzkuODI4MywgLTk4LjU3OTVdLAogICAgICAgICAgICAgICAgICAgIGNyczogTC5DUlMuRVBTRzM4NTcsCiAgICAgICAgICAgICAgICAgICAgem9vbTogNSwKICAgICAgICAgICAgICAgICAgICB6b29tQ29udHJvbDogdHJ1ZSwKICAgICAgICAgICAgICAgICAgICBwcmVmZXJDYW52YXM6IGZhbHNlLAogICAgICAgICAgICAgICAgfQogICAgICAgICAgICApOwoKICAgICAgICAgICAgCgogICAgICAgIAogICAgCiAgICAgICAgICAgIHZhciB0aWxlX2xheWVyXzJlNTA4MWIzMTljNTQ2OGI4OTNmYWZlYmRlZGJmNWVmID0gTC50aWxlTGF5ZXIoCiAgICAgICAgICAgICAgICAiaHR0cHM6Ly97c30udGlsZS5vcGVuc3RyZWV0bWFwLm9yZy97en0ve3h9L3t5fS5wbmciLAogICAgICAgICAgICAgICAgeyJhdHRyaWJ1dGlvbiI6ICJEYXRhIGJ5IFx1MDAyNmNvcHk7IFx1MDAzY2EgaHJlZj1cImh0dHA6Ly9vcGVuc3RyZWV0bWFwLm9yZ1wiXHUwMDNlT3BlblN0cmVldE1hcFx1MDAzYy9hXHUwMDNlLCB1bmRlciBcdTAwM2NhIGhyZWY9XCJodHRwOi8vd3d3Lm9wZW5zdHJlZXRtYXAub3JnL2NvcHlyaWdodFwiXHUwMDNlT0RiTFx1MDAzYy9hXHUwMDNlLiIsICJkZXRlY3RSZXRpbmEiOiBmYWxzZSwgIm1heE5hdGl2ZVpvb20iOiAxOCwgIm1heFpvb20iOiAxOCwgIm1pblpvb20iOiAwLCAibm9XcmFwIjogZmFsc2UsICJvcGFjaXR5IjogMSwgInN1YmRvbWFpbnMiOiAiYWJjIiwgInRtcyI6IGZhbHNlfQogICAgICAgICAgICApLmFkZFRvKG1hcF9kZGQ5YzhhMjZkZmI0MzE2ODMxMzMxM2I3NGYyM2YzYSk7CiAgICAgICAgCiAgICAKICAgICAgICAgICAgdmFyIGhlYXRfbWFwX2ExYjRjYzdkYTdhNjQ3ZWU4MTc5YzVhZGY1YTY4ZThhID0gTC5oZWF0TGF5ZXIoCiAgICAgICAgICAgICAgICBbWzMyLjMxODIsIC04Ni45MDIzLCA0MTAyLjBdLCBbNjEuMzcwNywgLTE1Mi40MDQ0LCAxNzYuMF0sIFstMTQuMjcwOTk5OTk5OTk5OTk5LCAtMTcwLjEzMiwgMC4wXSwgWzMzLjcyOTgsIC0xMTEuNDMxMiwgNzM1Ny4wXSwgWzM0Ljk2OTcsIC05Mi4zNzMxLCAyOTQ1LjBdLCBbMzYuMTE2MiwgLTExOS42ODE2LCAyMTA0MC4wXSwgWzM5LjA1OTgsIC0xMDUuMzExMSwgMzk1OC4wXSwgWzQxLjU5NzgsIC03Mi43NTU0LCA1MzYzLjBdLCBbMzkuMzE4NSwgLTc1LjUwNzEsIDgxNi4wXSwgWzM4Ljg5NzQsIC03Ny4wMjY4LCA3MTUuMF0sIFsyNy43NjYzLCAtODEuNjg2OCwgMTk4NjYuMF0sIFszMy4wNDA2LCAtODMuNjQzMSwgMTAwNzYuMF0sIFsxMy40NDQzLCAxNDQuNzkzNywgMTE1LjBdLCBbMjEuMDk0MywgLTE1Ny40OTgzLCAyNzQuMF0sIFs0NC4yNDA1LCAtMTE0LjQ3ODgsIDExNzUuMF0sIFs0MC4zNDk1LCAtODguOTg2MSwgMTUzMzkuMF0sIFszOS44NDk0LCAtODYuMjU4MywgNjgwNS4wXSwgWzQyLjAxMTUsIC05My4yMTA1LCAzMjA5LjBdLCBbMzguNTI2NiwgLTk2LjcyNjUsIDIwNzIuMF0sIFszNy42NjgxLCAtODQuNjcwMSwgMjIwNy4wXSwgWzMxLjE2OTUsIC05MS44Njc4LCA2ODE4LjBdLCBbNDQuNjkzOSwgLTY5LjM4MTksIDI1Ny4wXSwgWzM5LjA2MzksIC03Ni44MDIxLCA1MTE3LjBdLCBbNDIuMjMwMiwgLTcxLjUzMDEsIDExMzQ5LjBdLCBbNDMuMzI2NiwgLTg0LjUzNjEsIDExMTk1LjBdLCBbNDUuNjk0NSwgLTkzLjkwMDIsIDQ1MDMuMF0sIFszMi43NDE2LCAtODkuNjc4NywgNDE5OS4wXSwgWzM4LjQ1NjEsIC05Mi4yODg0LCA0NjA5LjBdLCBbNDYuOTIxOSwgLTExMC40NTQ0LCA4MTguMF0sIFs0MS4xMjU0LCAtOTguMjY4MSwgMTM3My4wXSwgWzM4LjMxMzUsIC0xMTcuMDU1NCwgMjUzOS4wXSwgWzQzLjQ1MjUsIC03MS41NjM5LCA2MDMuMF0sIFs0MC4yOTg5LCAtNzQuNTIxLCAxNzc1MS4wXSwgWzM0Ljg0MDUsIC0xMDYuMjQ4NSwgMTk1Ny4wXSwgWzQyLjE2NTcsIC03NC45NDgxLCAzNTU1Ny4wXSwgWzM1LjYzMDEsIC03OS44MDY0LCA1ODIzLjBdLCBbNDcuNTI4OSwgLTk5Ljc4Mzk5OTk5OTk5OTk5LCAxMTUyLjBdLCBbMTUuMDk3OSwgMTQ1LjY3MzksIDIuMF0sIFs0MC4zODg4LCAtODIuNzY0OSwgNzQ5Mi4wXSwgWzM1LjU2NTMsIC05Ni45Mjg5LCAyMDY0LjBdLCBbNDQuNTcxOTk5OTk5OTk5OTk2LCAtMTIyLjA3MDksIDExNTUuMF0sIFs0MC41OTA4LCAtNzcuMjA5OCwgMTI0OTAuMF0sIFsxOC4yMjA4LCAtNjYuNTkwMSwgMTI3Mi4wXSwgWzQxLjY4MDksIC03MS41MTE4LCAxNTA5LjBdLCBbMzMuODU2OSwgLTgwLjk0NSwgNDczOS4wXSwgWzQ0LjI5OTgsIC05OS40Mzg4LCAxMjU5LjBdLCBbMzUuNzQ3OCwgLTg2LjY5MjMsIDU0NjIuMF0sIFszMS4wNTQ1LCAtOTcuNTYzNSwgMjQ0MDAuMF0sIFs0MC4xNSwgLTExMS44NjI0LCAxMDU1LjBdLCBbNDQuMDQ1OSwgLTcyLjcxMDcsIDk1LjBdLCBbMTguMzM1OCwgLTY0Ljg5NjMsIDIzLjBdLCBbMzcuNzY5MywgLTc4LjE3LCA0NDExLjBdLCBbNDcuNDAwOSwgLTEyMS40OTA1LCAyODc5LjBdLCBbMzguNDkxMiwgLTgwLjk1NDUsIDk2OC4wXSwgWzQ0LjI2ODUsIC04OS42MTY1LCA0MzM5LjBdLCBbNDIuNzU2LCAtMTA3LjMwMjUsIDMyMS4wXV0sCiAgICAgICAgICAgICAgICB7ImJsdXIiOiAxNSwgIm1heCI6IDAuNSwgIm1heFpvb20iOiAxMCwgIm1pbk9wYWNpdHkiOiAwLjUsICJyYWRpdXMiOiAyNX0KICAgICAgICAgICAgKS5hZGRUbyhtYXBfZGRkOWM4YTI2ZGZiNDMxNjgzMTMzMTNiNzRmMjNmM2EpOwogICAgICAgIAo8L3NjcmlwdD4= onload="this.contentDocument.open();this.contentDocument.write(atob(this.getAttribute('data-html')));this.contentDocument.close();" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
 </div>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1367,7 +1361,7 @@ HeatMap(cdf[[&#39;Lat&#39;, &#39;Long_&#39;, &#39;Deaths&#39;]].dropna(subset = 
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book Community<br/>
+    By Jacob F. Koehler, PhD<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
