@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Functions &#8212; My sample book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions &#8212; Data and Design</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,13 +34,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -90,7 +86,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Data and Design</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -186,7 +182,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/08-functions.ipynb"
+        <a href="https://mybinder.org/v2/gh/jfkoehler/dad23/master?urlpath=tree/./08-functions.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -199,6 +195,24 @@ title="Launch on Binder"
     <img src="_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jfkoehler/dad23/blob/master/./08-functions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
 </a>
 
       </li>
@@ -229,7 +243,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/jfkoehler/dad23"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -246,7 +260,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F08-functions.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jfkoehler/dad23/issues/new?title=Issue%20on%20page%20%2F08-functions.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -452,10 +466,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="functions">
+  <div class="tex2jax_ignore mathjax_ignore section" id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h1>
 <hr class="docutils" />
-<section id="lesson-objectives">
+<div class="section" id="lesson-objectives">
 <h2>Lesson objectives<a class="headerlink" href="#lesson-objectives" title="Permalink to this headline">#</a></h2>
 <p>By the end of this lesson, you should be able to:</p>
 <ol class="simple">
@@ -464,27 +478,27 @@ title="Print to PDF"
 <li><p>Understand how to return a value from a function</p></li>
 <li><p>Know what a lambda function is and how to create one</p></li>
 </ol>
-</section>
-<section id="activity-basic-function">
+</div>
+<div class="section" id="activity-basic-function">
 <h2>Activity: Basic function<a class="headerlink" href="#activity-basic-function" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>Create a function in cell below called <code class="docutils literal notranslate"><span class="pre">greeting</span></code> that prints <code class="docutils literal notranslate"><span class="pre">&quot;Howdy&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Declare the function
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declare the function</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Invoke the function
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Invoke the function</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="activity-function-parameters">
+</div>
+<div class="section" id="activity-function-parameters">
 <h2>Activity: Function parameters<a class="headerlink" href="#activity-function-parameters" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>In the <a class="reference external" href="https://www.kaggle.com/c/titanic/data">Kaggle Titanic competition</a>, the names of everyone in the manifest look like this:</p>
@@ -498,8 +512,8 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">title</span></code></p></li>
 </ul>
 <p>And prints the full name in the format above.</p>
-</section>
-<section id="named-parameters-vs-ordered-parameters">
+</div>
+<div class="section" id="named-parameters-vs-ordered-parameters">
 <h2>Named parameters vs Ordered parameters<a class="headerlink" href="#named-parameters-vs-ordered-parameters" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>In the above example, you must order in which you add your arguments coincides with the order of the parameters in the function declaration. If you called them out of order like so:</p>
@@ -519,8 +533,8 @@ title="Print to PDF"
 </div>
 <p>Notice the order is the same as our bug: <code class="docutils literal notranslate"><span class="pre">('Doe',</span> <span class="pre">'Captain',</span> <span class="pre">'John')</span></code>. Only now the function will work properly.</p>
 <p>To summarize, ordering your parameters matters <strong>unless you reference the parameters by name</strong>.</p>
-</section>
-<section id="returning-values-from-a-function">
+</div>
+<div class="section" id="returning-values-from-a-function">
 <h2>Returning values from a function<a class="headerlink" href="#returning-values-from-a-function" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>Let’s say we want to use the result from our <code class="docutils literal notranslate"><span class="pre">titanic_name</span></code> function elsewhere in our code. To do this, we’ll set a variable like so:</p>
@@ -533,8 +547,8 @@ title="Print to PDF"
     <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s1">. </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="lambda-functions">
+</div>
+<div class="section" id="lambda-functions">
 <h2>Lambda functions<a class="headerlink" href="#lambda-functions" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">Lambda functions</a> allow us to create an anonymous function on the fly. We’ll use them extensively when we learn about <code class="docutils literal notranslate"><span class="pre">pandas</span></code> next week.</p>
@@ -553,8 +567,8 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions are written on one line</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions don’t require a <code class="docutils literal notranslate"><span class="pre">return</span></code>. It’s implied that the <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function above will return <code class="docutils literal notranslate"><span class="pre">&quot;Howdy,</span> <span class="pre">NAME&quot;</span></code></p></li>
 </ol>
-</section>
-<section id="challenge-dna-to-rna">
+</div>
+<div class="section" id="challenge-dna-to-rna">
 <h2>Challenge: DNA to RNA<a class="headerlink" href="#challenge-dna-to-rna" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>If you’ve taken a Biology class, you know that DNA is essentially a long string comprised of 4 nucleotides:</p>
@@ -573,23 +587,23 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>In the cell below, create a function called <code class="docutils literal notranslate"><span class="pre">dna_to_rna</span></code> that accepts a string of DNA and converts it to RNA.</p>
-</section>
-<section id="challenge-hamming-distance">
+</div>
+<div class="section" id="challenge-hamming-distance">
 <h2>Challenge: Hamming Distance<a class="headerlink" href="#challenge-hamming-distance" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>The DNA strand <code class="docutils literal notranslate"><span class="pre">'AAAA'</span></code> is similar to the strand <code class="docutils literal notranslate"><span class="pre">'AAAT'</span></code> with one exception: the 4th nucleotide is different. In other words, the two strands have a <strong>hamming distance</strong> of 1, where hamming distance is the number of nucleotides that differ between two strands.</p>
 <p>In the cell below, create a function called <code class="docutils literal notranslate"><span class="pre">hamming_distance</span></code> that accepts two parameters (<code class="docutils literal notranslate"><span class="pre">dna1</span></code> and <code class="docutils literal notranslate"><span class="pre">dna2</span></code>) and calculates the hamming distance between the two strands.</p>
 <p><strong>NOTE:</strong> You can assume the two strands will have the same length.</p>
-</section>
-<section id="challenge-find-the-divisors">
+</div>
+<div class="section" id="challenge-find-the-divisors">
 <h2>Challenge: Find the divisors<a class="headerlink" href="#challenge-find-the-divisors" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>From <a class="reference external" href="https://www.codewars.com/kata/find-the-divisors/train/python">codewars</a>. Create a function called <code class="docutils literal notranslate"><span class="pre">divisors</span></code> that accepts a number and returns a list of all the divisors for that number.</p>
 <p>For example: <code class="docutils literal notranslate"><span class="pre">divisors(12)</span></code> will return the list <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">6]</span></code>.</p>
 <p><strong>Note</strong>: 1 doesn’t count as a divisor.
 <strong>Note</strong>: If the number doesn’t have any divisors, it is prime (e.g. 13, 23, etc). In cases where the number is prime, simply return the string <code class="docutils literal notranslate"><span class="pre">'13</span> <span class="pre">is</span> <span class="pre">prime'</span></code>.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -625,7 +639,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book Community<br/>
+    By Jacob F. Koehler, PhD<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

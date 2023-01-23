@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Collections &#8212; My sample book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collections &#8212; Data and Design</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,13 +34,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -92,7 +88,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Data and Design</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -188,7 +184,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/02_collections.ipynb"
+        <a href="https://mybinder.org/v2/gh/jfkoehler/dad23/master?urlpath=tree/./02_collections.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -201,6 +197,24 @@ title="Launch on Binder"
     <img src="_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jfkoehler/dad23/blob/master/./02_collections.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
 </a>
 
       </li>
@@ -231,7 +245,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/jfkoehler/dad23"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -248,7 +262,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F02_collections.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jfkoehler/dad23/issues/new?title=Issue%20on%20page%20%2F02_collections.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -418,7 +432,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="collections">
+  <div class="tex2jax_ignore mathjax_ignore section" id="collections">
 <h1>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">#</a></h1>
 <p>In addition to individual variables that contain information, Python also can create collections of objects including variables.  There are three main types of these:</p>
 <p><strong>Ordered Collections</strong></p>
@@ -430,19 +444,19 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>dictionary</p></li>
 </ul>
-<section id="list">
+<div class="section" id="list">
 <h2>LIST<a class="headerlink" href="#list" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#a simple list
-simple_list = [1, 2, 3, &#39;steve&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#a simple list</span>
+<span class="n">simple_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;steve&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(simple_list)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">simple_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -454,8 +468,8 @@ simple_list = [1, 2, 3, &#39;steve&#39;]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#work like strings for indexing
-simple_list[0]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#work like strings for indexing</span>
+<span class="n">simple_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -467,8 +481,8 @@ simple_list[0]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#start at 2 and go to end
-simple_list[2:]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#start at 2 and go to end</span>
+<span class="n">simple_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -480,15 +494,15 @@ simple_list[2:]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#can alter the list easily
-simple_list[2] = &#39;hardy&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#can alter the list easily</span>
+<span class="n">simple_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hardy&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>simple_list
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_list</span>
 </pre></div>
 </div>
 </div>
@@ -498,20 +512,20 @@ simple_list[2] = &#39;hardy&#39;
 </div>
 </div>
 </div>
-</section>
-<section id="tuple">
+</div>
+<div class="section" id="tuple">
 <h2>TUPLE<a class="headerlink" href="#tuple" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#a basic tuple
-simple_tuple = (1, 2, 3, &#39;steve&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#a basic tuple</span>
+<span class="n">simple_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;steve&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(simple_tuple)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">simple_tuple</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -523,7 +537,7 @@ simple_tuple = (1, 2, 3, &#39;steve&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>simple_tuple[0]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -535,7 +549,7 @@ simple_tuple = (1, 2, 3, &#39;steve&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>simple_tuple[2:]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -547,15 +561,15 @@ simple_tuple = (1, 2, 3, &#39;steve&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#main difference from a list!
-simple_tuple[2] = &#39;hardy&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#main difference from a list!</span>
+<span class="n">simple_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hardy&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">b99463451240</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#main difference from a list!</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">simple_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hardy&#39;</span>
 
@@ -564,20 +578,20 @@ simple_tuple[2] = &#39;hardy&#39;
 </div>
 </div>
 </div>
-</section>
-<section id="dictionary">
+</div>
+<div class="section" id="dictionary">
 <h2>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">#</a></h2>
 <p>Here, we have a key rather than an index, and a value associated with this key.  Because there is not a numeric index, we have to explicitly provide these.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dog = {&#39;name&#39;: &#39;hardy&#39;, &#39;hobbies&#39;: [&#39;naps&#39;, &#39;snacks&#39;, &#39;fetch&#39;]}
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dog</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;hardy&#39;</span><span class="p">,</span> <span class="s1">&#39;hobbies&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;naps&#39;</span><span class="p">,</span> <span class="s1">&#39;snacks&#39;</span><span class="p">,</span> <span class="s1">&#39;fetch&#39;</span><span class="p">]}</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(dog)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">dog</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -589,7 +603,7 @@ simple_tuple[2] = &#39;hardy&#39;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dog[&#39;name&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dog</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -601,7 +615,7 @@ simple_tuple[2] = &#39;hardy&#39;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dog[&#39;hobbies&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dog</span><span class="p">[</span><span class="s1">&#39;hobbies&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -613,15 +627,15 @@ simple_tuple[2] = &#39;hardy&#39;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#add a new value
-dog[&#39;new_value&#39;] = &#39;something totally new&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#add a new value</span>
+<span class="n">dog</span><span class="p">[</span><span class="s1">&#39;new_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;something totally new&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dog
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dog</span>
 </pre></div>
 </div>
 </div>
@@ -633,8 +647,8 @@ dog[&#39;new_value&#39;] = &#39;something totally new&#39;
 </div>
 </div>
 </div>
-</section>
-<section id="methods-on-collections">
+</div>
+<div class="section" id="methods-on-collections">
 <h2>Methods on Collections<a class="headerlink" href="#methods-on-collections" title="Permalink to this headline">#</a></h2>
 <p>Lists and Dictionaries will occupy most of our time so we will limit our exploration to these collections and their associated methods for now.  Much like strings, we have methods for dictionaries and for lists, and they follow the same patterns of:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
@@ -642,15 +656,15 @@ dog[&#39;new_value&#39;] = &#39;something totally new&#39;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#append a value to the end of a list
-simple_list.append(&#39;oden&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#append a value to the end of a list</span>
+<span class="n">simple_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;oden&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>simple_list
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_list</span>
 </pre></div>
 </div>
 </div>
@@ -662,14 +676,14 @@ simple_list.append(&#39;oden&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>simple_list.insert( 1, &#39;sebastian&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;sebastian&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>simple_list
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_list</span>
 </pre></div>
 </div>
 </div>
@@ -681,7 +695,7 @@ simple_list.append(&#39;oden&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dog.items()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dog</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -693,7 +707,7 @@ simple_list.append(&#39;oden&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dog.keys()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dog</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -705,7 +719,7 @@ simple_list.append(&#39;oden&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dog.values()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dog</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -715,7 +729,7 @@ simple_list.append(&#39;oden&#39;)
 </div>
 </div>
 </div>
-<section id="problems">
+<div class="section" id="problems">
 <h3>PROBLEMS<a class="headerlink" href="#problems" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>Create a list containing a string, int, float, and boolean object.  Save this to ans_1 below.</p></li>
@@ -733,42 +747,42 @@ simple_list.append(&#39;oden&#39;)
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ans1 = &#39;&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans1</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ans2 = &#39;&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans2</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ans3 = &#39;&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans3</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ans4 = &#39;&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans4</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ans5 = &#39;&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans5</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -818,7 +832,7 @@ simple_list.append(&#39;oden&#39;)
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book Community<br/>
+    By Jacob F. Koehler, PhD<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
