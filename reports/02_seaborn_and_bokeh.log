@@ -20,6 +20,7 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 sns.countplot(titanic['sex'], hue = titanic['survived'])
 ------------------
 
+<<<<<<< HEAD
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
 [0;32m<ipython-input-5-bc98e84ba233>[0m in [0;36m<module>[0;34m[0m
@@ -31,6 +32,12 @@ sns.countplot(titanic['sex'], hue = titanic['survived'])
 [0;32m-> 2942[0;31m     plotter = _CountPlotter(
 [0m[1;32m   2943[0m         [0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0mhue[0m[0;34m,[0m [0mdata[0m[0;34m,[0m [0morder[0m[0;34m,[0m [0mhue_order[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
 [1;32m   2944[0m         [0mestimator[0m[0;34m,[0m [0merrorbar[0m[0;34m,[0m [0mn_boot[0m[0;34m,[0m [0munits[0m[0;34m,[0m [0mseed[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+=======
+[0;31m-------------------------------------------------------------[0m
+[0;31mValueError[0m                  Traceback (most recent call last)
+Cell [0;32mIn[5], line 1[0m
+[0;32m----> 1[0m [43msns[49m[38;5;241;43m.[39;49m[43mcountplot[49m[43m([49m[43mtitanic[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43msex[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m[43m [49m[43mhue[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mtitanic[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43msurvived[39;49m[38;5;124;43m'[39;49m[43m][49m[43m)[49m
+>>>>>>> 5349235 (syl)
 
 [0;32m/opt/anaconda3/lib/python3.8/site-packages/seaborn/categorical.py[0m in [0;36m__init__[0;34m(self, x, y, hue, data, order, hue_order, estimator, errorbar, n_boot, units, seed, orient, color, palette, saturation, width, errcolor, errwidth, capsize, dodge)[0m
 [1;32m   1528[0m                  errcolor, errwidth, capsize, dodge):

@@ -21,12 +21,21 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 simple_tuple[2] = 'hardy'
 ------------------
 
+<<<<<<< HEAD
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
 [0;32m<ipython-input-11-b99463451240>[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;31m#main difference from a list![0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0msimple_tuple[0m[0;34m[[0m[0;36m2[0m[0;34m][0m [0;34m=[0m [0;34m'hardy'[0m[0;34m[0m[0;34m[0m[0m
 [0m
+=======
+[0;31m-------------------------------------------------------------[0m
+[0;31mTypeError[0m                   Traceback (most recent call last)
+Cell [0;32mIn[11], line 2[0m
+[1;32m      1[0m [38;5;66;03m#main difference from a list![39;00m
+[0;32m----> 2[0m [43msimple_tuple[49m[43m[[49m[38;5;241;43m2[39;49m[43m][49m [38;5;241m=[39m [38;5;124m'[39m[38;5;124mhardy[39m[38;5;124m'[39m
+
+>>>>>>> 5349235 (syl)
 [0;31mTypeError[0m: 'tuple' object does not support item assignment
 TypeError: 'tuple' object does not support item assignment
 
