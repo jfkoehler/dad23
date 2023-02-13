@@ -165,19 +165,3 @@
 
 
 
-
-# ## Challenge: Find the divisors
-# ---
-# 
-# From [codewars](https://www.codewars.com/kata/find-the-divisors/train/python). Create a function called `divisors` that accepts a number and returns a list of all the divisors for that number. 
-# 
-# For example: `divisors(12)` will return the list `[2, 3, 4, 6]`. 
-# 
-# **Note**: 1 doesn't count as a divisor.
-# **Note**: If the number doesn't have any divisors, it is prime (e.g. 13, 23, etc). In cases where the number is prime, simply return the string `'13 is prime'`.
-
-# In[ ]:
-
-
-
-

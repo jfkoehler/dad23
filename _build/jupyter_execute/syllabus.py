@@ -11,7 +11,7 @@
 # 
 # **TIME**: Monday 12:10 - 2:50 pm
 # 
-# **WEBSITE**: https://github.com/jfkoehler/data-and-design
+# **WEBSITE**: https://jfkoehler.github.io/dad23
 # 
 # **SLACK CHANNEL**: https://join.slack.com/t/newschool-vcz2981/shared_invite/zt-h00glhaq-Zn4FUwudYBOnVH561Q2P9Q
 # 

@@ -10,7 +10,7 @@
 # 
 # 
 
-# ![](if-flow.png)
+# ![](images/if-flow.png)
 
 # **QUESTION: Do you like Travis Scott?**
 # 

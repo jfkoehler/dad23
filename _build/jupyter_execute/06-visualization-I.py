@@ -43,12 +43,6 @@ import pandas as pd
 #add x and y labels
 
 
-# In[7]:
-
-
-import pandas as pd
-
-
 # ## Basic Plots
 # 
 # - Histogram: one continuous set of values
@@ -57,44 +51,44 @@ import pandas as pd
 # - Scatter Plot: two continuous values
 # - Boxplot: one continuous value
 
-# In[8]:
+# In[7]:
 
 
 import seaborn as sns
 
 
-# In[9]:
+# In[8]:
 
 
 titanic = sns.load_dataset('titanic')
 penguins = sns.load_dataset('penguins')
 
 
-# In[10]:
+# In[9]:
 
 
 #titanic time
 
 
-# In[11]:
+# In[10]:
 
 
 #age vs. fare
 
 
-# In[12]:
+# In[11]:
 
 
 #counts per class
 
 
-# In[13]:
+# In[12]:
 
 
 #fare vs. age
 
 
-# In[14]:
+# In[13]:
 
 
 #boxplot of survivals by age
@@ -102,31 +96,31 @@ penguins = sns.load_dataset('penguins')
 
 # ### Using Seaborn
 
-# In[15]:
+# In[14]:
 
 
 #scatterplot
 
 
-# In[16]:
+# In[15]:
 
 
 #distplot
 
 
-# In[17]:
+# In[16]:
 
 
 #countplot
 
 
-# In[18]:
+# In[17]:
 
 
 #boxplot
 
 
-# In[19]:
+# In[18]:
 
 
 #swarmplot
@@ -134,31 +128,31 @@ penguins = sns.load_dataset('penguins')
 
 # ### `.groupby`
 
-# In[20]:
+# In[19]:
 
 
 #group by gender
 
 
-# In[21]:
+# In[20]:
 
 
 #group by island
 
 
-# In[22]:
+# In[21]:
 
 
 #group by island and species
 
 
-# In[23]:
+# In[22]:
 
 
 #group by age
 
 
-# In[24]:
+# In[23]:
 
 
 #multiple summaries
@@ -166,25 +160,25 @@ penguins = sns.load_dataset('penguins')
 
 # ### Subplots
 
-# In[25]:
+# In[24]:
 
 
 #single subplot
 
 
-# In[26]:
+# In[25]:
 
 
 #two columns 
 
 
-# In[27]:
+# In[26]:
 
 
 #two rows
 
 
-# In[28]:
+# In[27]:
 
 
 #two rows two columns
@@ -192,13 +186,13 @@ penguins = sns.load_dataset('penguins')
 
 # ### Saving and Displaying Figures
 
-# In[29]:
+# In[28]:
 
 
 #same image
 
 
-# In[30]:
+# In[29]:
 
 
 #view in markdown cell

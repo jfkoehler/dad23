@@ -8,4 +8,7 @@ chapters:
 - file: 02_collections
 - file: 03-control_flow
 - file: 04-functions
+- file: 05-pandas
+- file: 06-visualization-I
+- file: 09_folium_intro
 
